@@ -62,6 +62,18 @@ pkg_preinst() {
 	LTO_PORTAGE_DIR="${GENTOOLTO_PORTDIR}/${CATEGORY}/${PN}/files"
 
 	COMMON_WORKAROUNDS=(
+		cmake-makefile.conf
+		devirtualize-at-ltrans.conf
+		graphite.conf
+		ipa-pta.conf
+		lto.conf
+		no-common-libtool.conf
+		no-plt.conf
+		no-semantic-interposition.conf
+		optimizations.conf
+		portage-bashrc-mv.conf
+		tls-dialect.conf
+		use-ld.conf
 		untested-cmake-makefile.conf
 		untested-devirtualize-at-ltrans.conf
 		untested-graphite.conf
@@ -92,10 +104,14 @@ pkg_preinst() {
 	#Install -fno-common workarounds file
 	use keep-nocommon && dosym "${LTO_PORTAGE_DIR}/package.cflags/untested-no-common.conf" \
 	"${PORTAGE_CONFIGROOT#${EPREFIX}%/}/etc/portage/package.cflags/untested-no-common.conf"
+	use keep-nocommon && dosym "${LTO_PORTAGE_DIR}/package.cflags/no-common.conf" \
+	"${PORTAGE_CONFIGROOT#${EPREFIX}%/}/etc/portage/package.cflags/no-common.conf"
 
 	# Install Clang LTO workarounds
 	use clang && dosym "${LTO_PORTAGE_DIR}/package.cflags/untested-clang.conf" \
 	"${PORTAGE_CONFIGROOT#${EPREFIX}%/}/etc/portage/package.cflags/untested-clang.conf"
+	use clang && dosym "${LTO_PORTAGE_DIR}/package.cflags/clang.conf" \
+	"${PORTAGE_CONFIGROOT#${EPREFIX}%/}/etc/portage/package.cflags/clang.conf"
 
 	#Install patch framework
 	elog "Installing bashrc.d hook symlink to apply LTO patches directly from lto-overlay"
@@ -106,6 +122,7 @@ pkg_preinst() {
 		ewarn "Installing bashrc.d hook to override strip-flags and replace-flags functions in flag-o-matic.  This is an experimental feature!"
 		dosym "${LTO_PORTAGE_DIR}/bashrc.d/42-lto-flag-o-matic.sh" "${PORTAGE_CONFIGROOT#${EPREFIX}}/etc/portage/bashrc.d/42-lto-flag-o-matic.sh"
 		dosym "${LTO_PORTAGE_DIR}/package.cflags/untested-flag-o-matic.conf" "${PORTAGE_CONFIGROOT#${EPREFIX}}/etc/portage/package.cflags/untested-flag-o-matic.conf"
+		dosym "${LTO_PORTAGE_DIR}/package.cflags/flag-o-matic.conf" "${PORTAGE_CONFIGROOT#${EPREFIX}}/etc/portage/package.cflags/wflag-o-matic.conf"
 	fi
 
 	elog "Installing bashrc.d hook symlink to override package libtool lt_cv_sys_global_symbol_pipe and lt_cv_sys_global_symbol_to_cdecl"

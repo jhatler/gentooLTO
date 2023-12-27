@@ -122,7 +122,7 @@ pkg_preinst() {
 		ewarn "Installing bashrc.d hook to override strip-flags and replace-flags functions in flag-o-matic.  This is an experimental feature!"
 		dosym "${LTO_PORTAGE_DIR}/bashrc.d/42-lto-flag-o-matic.sh" "${PORTAGE_CONFIGROOT#${EPREFIX}}/etc/portage/bashrc.d/42-lto-flag-o-matic.sh"
 		dosym "${LTO_PORTAGE_DIR}/package.cflags/untested-flag-o-matic.conf" "${PORTAGE_CONFIGROOT#${EPREFIX}}/etc/portage/package.cflags/untested-flag-o-matic.conf"
-		dosym "${LTO_PORTAGE_DIR}/package.cflags/flag-o-matic.conf" "${PORTAGE_CONFIGROOT#${EPREFIX}}/etc/portage/package.cflags/wflag-o-matic.conf"
+		dosym "${LTO_PORTAGE_DIR}/package.cflags/flag-o-matic.conf" "${PORTAGE_CONFIGROOT#${EPREFIX}}/etc/portage/package.cflags/flag-o-matic.conf"
 	fi
 
 	elog "Installing bashrc.d hook symlink to override package libtool lt_cv_sys_global_symbol_pipe and lt_cv_sys_global_symbol_to_cdecl"

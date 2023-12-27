@@ -68,7 +68,6 @@ pkg_preinst() {
 		ipa-pta.conf
 		lto.conf
 		no-common-libtool.conf
-		no-plt.conf
 		no-semantic-interposition.conf
 		optimizations.conf
 		portage-bashrc-mv.conf
@@ -78,7 +77,6 @@ pkg_preinst() {
 		untested-ipa-pta.conf
 		untested-lto.conf
 		untested-no-common-libtool.conf
-		untested-no-plt.conf
 		untested-no-semantic-interposition.conf
 		untested-optimizations.conf
 		untested-portage-bashrc-mv.conf

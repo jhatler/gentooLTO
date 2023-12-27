@@ -54,8 +54,3 @@ SAFER_FAST_MATH="${SAFER_UNSAFE_MATH_OPTS} -fno-math-errno -ffinite-math-only -f
 DEVIRTLTO="-fdevirtualize-at-ltrans"
 
 #This allows GCC to perform devirtualization across object file boundaries using LTO.
-
-NOPLT="-fno-plt"
-
-#This option omits the PLT from the executable, making calls go through the GOT directly.
-#It inhibits lazy binding, so this is not enabled by default. 

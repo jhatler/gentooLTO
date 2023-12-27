@@ -16,7 +16,7 @@ SRC_URI=""
 
 LICENSE="GPL-2+"
 SLOT="0"
-IUSE="clang keep-nocommon +override-flagomatic"
+IUSE="clang +override-flagomatic"
 
 #portage-bashrc-mv can be obtained from mv overlay
 DEPEND="
@@ -98,12 +98,6 @@ pkg_preinst() {
 		elog "Installing package.cflags ${i} override"
 		dosym "${LTO_PORTAGE_DIR}/package.cflags/${i}" "${PORTAGE_CONFIGROOT#${EPREFIX}}/etc/portage/package.cflags/${i}"
 	done
-
-	#Install -fno-common workarounds file
-	use keep-nocommon && dosym "${LTO_PORTAGE_DIR}/package.cflags/untested-no-common.conf" \
-	"${PORTAGE_CONFIGROOT#${EPREFIX}%/}/etc/portage/package.cflags/untested-no-common.conf"
-	use keep-nocommon && dosym "${LTO_PORTAGE_DIR}/package.cflags/no-common.conf" \
-	"${PORTAGE_CONFIGROOT#${EPREFIX}%/}/etc/portage/package.cflags/no-common.conf"
 
 	# Install Clang LTO workarounds
 	use clang && dosym "${LTO_PORTAGE_DIR}/package.cflags/untested-clang.conf" \

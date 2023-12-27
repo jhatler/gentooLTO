@@ -16,7 +16,7 @@ SRC_URI=""
 
 LICENSE="GPL-2+"
 SLOT="0"
-IUSE="clang keep-nocommon override-flagomatic"
+IUSE="clang keep-nocommon +override-flagomatic"
 
 #portage-bashrc-mv can be obtained from mv overlay
 DEPEND="

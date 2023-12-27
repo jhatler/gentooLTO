@@ -72,7 +72,6 @@ pkg_preinst() {
 		no-semantic-interposition.conf
 		optimizations.conf
 		portage-bashrc-mv.conf
-		tls-dialect.conf
 		untested-cmake-makefile.conf
 		untested-devirtualize-at-ltrans.conf
 		untested-graphite.conf
@@ -83,7 +82,6 @@ pkg_preinst() {
 		untested-no-semantic-interposition.conf
 		untested-optimizations.conf
 		untested-portage-bashrc-mv.conf
-		untested-tls-dialect.conf
 	)
 
 	#Install make.conf settings

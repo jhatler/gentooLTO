@@ -75,4 +75,5 @@ source /etc/portage/make.conf.lto.defines
 
 #Thanks to issue #49, no action necessary for preventing stripping of static libraries
 
+USE="lto pgo"
 CFLAGS="-O3 ${GRAPHITE} ${DEVIRTLTO} ${IPAPTA} ${SEMINTERPOS} ${FLTO} -fuse-linker-plugin"

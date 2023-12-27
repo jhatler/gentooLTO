@@ -58,5 +58,4 @@ DEVIRTLTO="-fdevirtualize-at-ltrans"
 NOPLT="-fno-plt"
 
 #This option omits the PLT from the executable, making calls go through the GOT directly.
-#It inhibits lazy binding, so this is not enabled by default.  If you use prelink, this is
-#strictly better than lazy binding.
+#It inhibits lazy binding, so this is not enabled by default. 

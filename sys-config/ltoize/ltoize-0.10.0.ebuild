@@ -73,7 +73,6 @@ pkg_preinst() {
 		optimizations.conf
 		portage-bashrc-mv.conf
 		tls-dialect.conf
-		use-ld.conf
 		untested-cmake-makefile.conf
 		untested-devirtualize-at-ltrans.conf
 		untested-graphite.conf
@@ -85,7 +84,6 @@ pkg_preinst() {
 		untested-optimizations.conf
 		untested-portage-bashrc-mv.conf
 		untested-tls-dialect.conf
-		untested-use-ld.conf
 	)
 
 	#Install make.conf settings

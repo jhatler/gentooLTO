@@ -77,4 +77,4 @@ source /etc/portage/make.conf.lto.defines
 
 USE="lto pgo"
 LTO_ENABLE_FLAGOMATIC=yes
-CFLAGS="-O3 ${GRAPHITE} ${DEVIRTLTO} ${IPAPTA} ${SEMINTERPOS} ${FLTO} -fuse-linker-plugin"
+CFLAGS="-O3 ${GRAPHITE} ${DEVIRTLTO} ${IPAPTA} ${SEMINTERPOS} ${FLTO} ${LTO_WARNING_FLAGS} -fuse-linker-plugin"

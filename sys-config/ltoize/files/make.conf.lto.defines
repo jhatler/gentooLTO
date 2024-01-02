@@ -54,3 +54,9 @@ SAFER_FAST_MATH="${SAFER_UNSAFE_MATH_OPTS} -fno-math-errno -ffinite-math-only -f
 DEVIRTLTO="-fdevirtualize-at-ltrans"
 
 #This allows GCC to perform devirtualization across object file boundaries using LTO.
+
+LTO_WARNING_FLAGS="-Werror=odr -Werror=lto-type-mismatch -Werror=strict-aliasing"
+
+# These warnings indicate likely runtime problems with LTO, so promote them
+# to errors. If a package fails to build with these, LTO should not be used there.
+# See here for more: https://wiki.gentoo.org/wiki/LTO

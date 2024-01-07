@@ -67,7 +67,6 @@ pkg_preinst() {
 		graphite.conf
 		ipa-pta.conf
 		lto.conf
-		no-common-libtool.conf
 		no-semantic-interposition.conf
 		optimizations.conf
 		untested-cmake-makefile.conf
@@ -75,7 +74,6 @@ pkg_preinst() {
 		untested-graphite.conf
 		untested-ipa-pta.conf
 		untested-lto.conf
-		untested-no-common-libtool.conf
 		untested-no-semantic-interposition.conf
 		untested-optimizations.conf
 	)
@@ -110,9 +108,6 @@ pkg_preinst() {
 		dosym "${LTO_PORTAGE_DIR}/package.cflags/untested-flag-o-matic.conf" "${PORTAGE_CONFIGROOT#${EPREFIX}}/etc/portage/package.cflags/untested-flag-o-matic.conf"
 		dosym "${LTO_PORTAGE_DIR}/package.cflags/flag-o-matic.conf" "${PORTAGE_CONFIGROOT#${EPREFIX}}/etc/portage/package.cflags/flag-o-matic.conf"
 	fi
-
-	elog "Installing bashrc.d hook symlink to override package libtool lt_cv_sys_global_symbol_pipe and lt_cv_sys_global_symbol_to_cdecl"
-	dosym "${LTO_PORTAGE_DIR}/bashrc.d/43-lto-no-common.sh" "${PORTAGE_CONFIGROOT#${EPREFIX}}/etc/portage/bashrc.d/43-lto-no-common.sh"
 }
 
 pkg_postinst()

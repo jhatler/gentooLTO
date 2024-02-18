@@ -42,12 +42,6 @@ SEMINTERPOS="-fno-semantic-interposition"
 #Similarly if interposition happens for variables, the constructor of the variable will be the same.
 #The flag has no effect for functions explicitly declared inline (where it is never allowed for interposition to change semantics) and for symbols explicitly declared weak.
 
-NOCOMMON="-fno-common"
-
-# This option only affects C code.  Only non-conformant C code needs -fcommon, which is enabled by default.  Clear Linux leaves this flag off by default.
-# This is enabled by default with GCC 10 and is kept here only for documentation purposes.  Use `-fcommon` to restore
-# GCC 9.x behaviour and below.
-
 SAFEST_FAST_MATH="-fno-math-errno -fno-trapping-math"
 SAFER_UNSAFE_MATH_OPTS="-fno-signed-zeros -fno-trapping-math -fassociative-math -freciprocal-math"
 SAFER_FAST_MATH="${SAFER_UNSAFE_MATH_OPTS} -fno-math-errno -ffinite-math-only -fno-rounding-math -fno-signaling-nans -fcx-limited-range -fexcess-precision=fast"
@@ -61,8 +55,8 @@ DEVIRTLTO="-fdevirtualize-at-ltrans"
 
 #This allows GCC to perform devirtualization across object file boundaries using LTO.
 
-NOPLT="-fno-plt"
+LTO_WARNING_FLAGS="-Werror=odr -Werror=lto-type-mismatch -Werror=strict-aliasing"
 
-#This option omits the PLT from the executable, making calls go through the GOT directly.
-#It inhibits lazy binding, so this is not enabled by default.  If you use prelink, this is
-#strictly better than lazy binding.
+# These warnings indicate likely runtime problems with LTO, so promote them
+# to errors. If a package fails to build with these, LTO should not be used there.
+# See here for more: https://wiki.gentoo.org/wiki/LTO
